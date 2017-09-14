@@ -20,3 +20,4 @@ compile "name.zeno:progressbar:0.0.1"
   FontMetricsInt fm = mPaint.getFontMetricsInt();
   int startY = getHeight() / 2 - fm.descent + (fm.bottom - fm.top) / 2;
   ```
+- [android 实现文字渐变效果和歌词精度的效果](http://blog.csdn.net/u013278099/article/details/50881431)
