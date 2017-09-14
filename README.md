@@ -4,6 +4,13 @@
 
 ![demo](./screenshot/demo.jpg)
 
+```groovy
+
+maven { url "http://maven.mjtown.cn/"}
+
+compile "name.zeno:progressbar:0.0.1"
+```
+
 ## [attrs](./library/src/main/res/values/attrs_ZprogressBar.xml)
 
 ## Thanks
