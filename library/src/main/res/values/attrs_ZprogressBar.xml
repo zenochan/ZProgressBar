@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="ZProgressBar">
+    <!-- 圆角大小-->
+    <attr name="pb_radius" format="dimension"/>
+    <!-- 背景色-->
+    <attr name="pb_colorBg" format="color"/>
+    <attr name="pb_process" format="float"/>
+    <!-- 进度条开始颜色-->
+    <attr name="pb_colorStart" format="color"/>
+    <!-- 进度条结束颜色-->
+    <attr name="pb_colorEnd" format="color"/>
+    <!-- 进度到达文本颜色-->
+    <attr name="pb_colorTextLeft" format="color"/>
+    <!-- 进度未到达文本颜色-->
+    <attr name="pb_colorTextRight" format="color"/>
+    <attr name="android:text"/>
+    <attr name="android:textSize"/>
+    <!-- left ，right， center-->
+    <attr name="android:gravity"/>
+  </declare-styleable>
+</resources>
