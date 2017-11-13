@@ -19,15 +19,14 @@ import android.view.View
 class ZProgressBar @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0,
-    defStyleRes: Int = 0
-) : View(context, attrs, defStyleAttr, defStyleRes) {
+    defStyleAttr: Int = 0
+) : View(context, attrs, defStyleAttr) {
   var process: Float = 0.5F
     set(value) {
       if (value < 0 || value > 1) throw IllegalArgumentException("process 请设置 0 ~ 1的浮点数")
       field = value
-      initRect(measuredWidth, measuredWidth)
-      shader = LinearGradient(0F, 0F, measuredWidth * process, 0F, colorStart, colorEnd, Shader.TileMode.CLAMP)
+      initRect(width, height)
+      shader = LinearGradient(0F, 0F, width * process, 0F, colorStart, colorEnd, Shader.TileMode.CLAMP)
       invalidate()// 重绘
     }
 
@@ -43,6 +42,10 @@ class ZProgressBar @JvmOverloads constructor(
     }
   var textSize: Float = 16F
   var gravity: Int = Gravity.CENTER
+    set(value) {
+      field = value
+      invalidate()
+    }
   @ColorInt private var colorTextLeft: Int = Color.WHITE
   @ColorInt private var colorTextRight: Int = Color.DKGRAY
 
@@ -83,6 +86,7 @@ class ZProgressBar @JvmOverloads constructor(
     super.onDraw(canvas)
     // 绘制背景
     imgPaint.shader = null
+    imgPaint.color = colorBg
     canvas.drawRoundRect(fullRect, radius, radius, imgPaint)
 
     // 绘制进度
@@ -95,11 +99,11 @@ class ZProgressBar @JvmOverloads constructor(
     drawText(canvas, true)
   }
 
-  override fun onDetachedFromWindow() {
-    super.onDetachedFromWindow()
-    lBmp?.recycle()
-    rBmp?.recycle()
-  }
+//  override fun onDetachedFromWindow() {
+//    super.onDetachedFromWindow()
+//    lBmp?.recycle()
+//    rBmp?.recycle()
+//  }
 
   private fun initCanvas(w: Int, h: Int) {
     lBmp?.recycle()
